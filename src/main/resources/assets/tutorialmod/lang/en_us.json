@@ -1,0 +1,10 @@
+{
+  "item.tutorialmod.topaz": "Topaz",
+  "item.tutorialmod.raw_topaz": "Raw Topaz",
+
+  "block.tutorialmod.topaz_block": "Block of Topaz",
+  "block.tutorialmod.deepslate_topaz_ore": "Deepslate Topaz Ore",
+  "block.tutorialmod.topaz_ore": "Topaz Ore",
+
+  "itemGroup.tutorialtab": "Tutorial Tab"
+}
