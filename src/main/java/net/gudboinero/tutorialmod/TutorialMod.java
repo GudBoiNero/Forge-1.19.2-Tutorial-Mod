@@ -3,6 +3,8 @@ package net.gudboinero.tutorialmod;
 import com.mojang.logging.LogUtils;
 import net.gudboinero.tutorialmod.block.ModBlocks;
 import net.gudboinero.tutorialmod.item.ModItems;
+import net.gudboinero.tutorialmod.world.feature.ModConfiguredFeatures;
+import net.gudboinero.tutorialmod.world.feature.ModPlacedFeatures;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -11,6 +13,12 @@ import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.slf4j.Logger;
+
+/*
+ * TODO:
+ *  - Add loot table to blocks (ModBlocks.java)
+ *  - Add recipe for Topaz Block
+ */
 
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod(TutorialMod.MOD_ID)
@@ -25,6 +33,10 @@ public class TutorialMod
 
         ModItems.register(modEventBus);
         ModBlocks.register(modEventBus);
+
+        // Ore Generation Register
+        ModConfiguredFeatures.register(modEventBus);
+        ModPlacedFeatures.register(modEventBus);
 
         modEventBus.addListener(this::commonSetup);
 
