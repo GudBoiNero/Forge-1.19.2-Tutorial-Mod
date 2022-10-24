@@ -1,10 +1,10 @@
 package net.gudboinero.tutorialmod;
 
 import com.mojang.logging.LogUtils;
-import net.gudboinero.tutorialmod.block.ModBlocks;
-import net.gudboinero.tutorialmod.item.ModItems;
-import net.gudboinero.tutorialmod.world.feature.ModConfiguredFeatures;
-import net.gudboinero.tutorialmod.world.feature.ModPlacedFeatures;
+import net.gudboinero.tutorialmod.registry.TMBlocks;
+import net.gudboinero.tutorialmod.registry.TMConfiguredFeatures;
+import net.gudboinero.tutorialmod.registry.TMItems;
+import net.gudboinero.tutorialmod.registry.TMPlacedFeatures;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -31,12 +31,12 @@ public class TutorialMod
     {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
-        ModItems.register(modEventBus);
-        ModBlocks.register(modEventBus);
+        TMItems.register(modEventBus);
+        TMBlocks.register(modEventBus);
 
         // Ore Generation Register
-        ModConfiguredFeatures.register(modEventBus);
-        ModPlacedFeatures.register(modEventBus);
+        TMConfiguredFeatures.register(modEventBus);
+        TMPlacedFeatures.register(modEventBus);
 
         modEventBus.addListener(this::commonSetup);
 

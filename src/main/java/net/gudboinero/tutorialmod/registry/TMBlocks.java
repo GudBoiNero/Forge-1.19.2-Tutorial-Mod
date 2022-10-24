@@ -1,8 +1,6 @@
-package net.gudboinero.tutorialmod.block;
+package net.gudboinero.tutorialmod.registry;
 
 import net.gudboinero.tutorialmod.TutorialMod;
-import net.gudboinero.tutorialmod.item.ModCreativeModTab;
-import net.gudboinero.tutorialmod.item.ModItems;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTab;
@@ -19,7 +17,7 @@ import net.minecraftforge.registries.RegistryObject;
 
 import java.util.function.Supplier;
 
-public class ModBlocks {
+public class TMBlocks {
     public static final DeferredRegister<Block> BLOCKS =
             DeferredRegister.create(ForgeRegistries.BLOCKS, TutorialMod.MOD_ID);
 
@@ -27,19 +25,19 @@ public class ModBlocks {
     public static final RegistryObject<Block> TOPAZ_BLOCK = registerBlock("topaz_block",
             () -> new Block(BlockBehaviour.Properties.of(Material.METAL)
                     .strength(6f).requiresCorrectToolForDrops()),
-            ModCreativeModTab.TUTORIAL_TAB);
+            TMCreativeModTab.TUTORIAL_TAB);
 
     public static final RegistryObject<Block> DEEPSLATE_TOPAZ_ORE = registerBlock("deepslate_topaz_ore",
             () -> new DropExperienceBlock(BlockBehaviour.Properties.of(Material.STONE).sound(SoundType.DEEPSLATE)
                     .strength(8f).requiresCorrectToolForDrops(),
             UniformInt.of(3, 7)),
-            ModCreativeModTab.TUTORIAL_TAB);
+            TMCreativeModTab.TUTORIAL_TAB);
 
     public static final RegistryObject<Block> TOPAZ_ORE = registerBlock("topaz_ore",
             () -> new DropExperienceBlock(BlockBehaviour.Properties.of(Material.STONE)
                     .strength(4f).requiresCorrectToolForDrops(),
             UniformInt.of(3, 7)),
-            ModCreativeModTab.TUTORIAL_TAB);
+            TMCreativeModTab.TUTORIAL_TAB);
 
 
     // Registers a Block and uses that Block to register a BlockItem
@@ -50,7 +48,7 @@ public class ModBlocks {
     }
 
     private static <T extends Block> RegistryObject<Item> registerBlockItem(String name, RegistryObject<T> block, CreativeModeTab tab) {
-        return ModItems.ITEMS.register(name, () -> new BlockItem(block.get(), new Item.Properties().tab(tab)));
+        return TMItems.ITEMS.register(name, () -> new BlockItem(block.get(), new Item.Properties().tab(tab)));
     }
 
     public static void register(IEventBus eventBus) {

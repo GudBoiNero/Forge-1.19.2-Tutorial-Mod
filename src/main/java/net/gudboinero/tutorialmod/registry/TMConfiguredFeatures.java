@@ -1,8 +1,7 @@
-package net.gudboinero.tutorialmod.world.feature;
+package net.gudboinero.tutorialmod.registry;
 
 import com.google.common.base.Suppliers;
 import net.gudboinero.tutorialmod.TutorialMod;
-import net.gudboinero.tutorialmod.block.ModBlocks;
 import net.minecraft.core.Registry;
 import net.minecraft.data.worldgen.features.OreFeatures;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
@@ -21,13 +20,13 @@ import java.util.function.Supplier;
  * this one just declares the features
  */
 
-public class ModConfiguredFeatures {
+public class TMConfiguredFeatures {
     public static final DeferredRegister<ConfiguredFeature<?, ?>> CONFIGURED_FEATURES =
             DeferredRegister.create(Registry.CONFIGURED_FEATURE_REGISTRY, TutorialMod.MOD_ID);
 
     public static final Supplier<List<OreConfiguration.TargetBlockState>> OVERWORLD_TOPAZ_ORE = Suppliers.memoize(() -> List.of(
-            OreConfiguration.target(OreFeatures.STONE_ORE_REPLACEABLES, ModBlocks.TOPAZ_ORE.get().defaultBlockState()),
-            OreConfiguration.target(OreFeatures.DEEPSLATE_ORE_REPLACEABLES, ModBlocks.DEEPSLATE_TOPAZ_ORE.get().defaultBlockState())));
+            OreConfiguration.target(OreFeatures.STONE_ORE_REPLACEABLES, TMBlocks.TOPAZ_ORE.get().defaultBlockState()),
+            OreConfiguration.target(OreFeatures.DEEPSLATE_ORE_REPLACEABLES, TMBlocks.DEEPSLATE_TOPAZ_ORE.get().defaultBlockState())));
 
     public static final RegistryObject<ConfiguredFeature<?, ?>> TOPAZ_ORE = CONFIGURED_FEATURES.register("topaz_ore",
             () -> new ConfiguredFeature<>(Feature.ORE, new OreConfiguration(OVERWORLD_TOPAZ_ORE.get(), 7)));

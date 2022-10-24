@@ -1,4 +1,4 @@
-package net.gudboinero.tutorialmod.world.feature;
+package net.gudboinero.tutorialmod.registry;
 
 import net.gudboinero.tutorialmod.TutorialMod;
 import net.minecraft.core.Registry;
@@ -10,12 +10,12 @@ import net.minecraftforge.registries.RegistryObject;
 
 import java.util.List;
 
-public class ModPlacedFeatures {
+public class TMPlacedFeatures {
     public static final DeferredRegister<PlacedFeature> PLACED_FEATURES =
             DeferredRegister.create(Registry.PLACED_FEATURE_REGISTRY, TutorialMod.MOD_ID);
 
     public static final RegistryObject<PlacedFeature> TOPAZ_ORE_PLACED = PLACED_FEATURES.register("topaz_ore_placed",
-            () -> new PlacedFeature(ModConfiguredFeatures.TOPAZ_ORE.getHolder().get(),
+            () -> new PlacedFeature(TMConfiguredFeatures.TOPAZ_ORE.getHolder().get(),
                     commonOrePlacement(7, // VeinsPerChunk
                             HeightRangePlacement.triangle(VerticalAnchor.aboveBottom(-80), VerticalAnchor.aboveBottom(80)))));
 

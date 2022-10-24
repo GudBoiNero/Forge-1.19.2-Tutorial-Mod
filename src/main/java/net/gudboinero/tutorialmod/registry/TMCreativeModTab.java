@@ -1,13 +1,13 @@
-package net.gudboinero.tutorialmod.item;
+package net.gudboinero.tutorialmod.registry;
 
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
 
-public class ModCreativeModTab {
+public class TMCreativeModTab {
     public static final CreativeModeTab TUTORIAL_TAB = new CreativeModeTab("tutorialtab") {
         @Override
         public ItemStack makeIcon() {
-            return new ItemStack(ModItems.TOPAZ.get());
+            return new ItemStack(TMItems.TOPAZ.get());
         }
     };
 }
